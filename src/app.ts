@@ -14,7 +14,7 @@ app.use("/api/orders",OrderRoute)
 
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
+  res.send("Crud Operation");
 });
 
 export default app;
