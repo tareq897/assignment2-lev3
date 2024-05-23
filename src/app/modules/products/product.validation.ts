@@ -24,5 +24,5 @@ const inventoryValidationSchema = z.object({
     inventory: inventoryValidationSchema,
   })
   
-  export const productValidationSchemaForUpdate =
+  export const ProductValidationSchemaForUpdate =
     productValidationSchema.partial()

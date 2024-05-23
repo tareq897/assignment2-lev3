@@ -10,6 +10,7 @@ app.use("/api/products", ProductRoute);
 
 
 
+
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
