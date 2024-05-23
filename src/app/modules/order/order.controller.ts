@@ -1,12 +1,13 @@
 import { Request, Response } from 'express'
 import { OrderServices } from './order.service'
-import { OrderValidationSchema } from './order.validation'
+import OrderValidationSchema from './order.validation'
+
 
 const createOrder = async (req: Request, res: Response) => {
   try {
     const data = req.body
-    const order = OrderValidationSchema.parse(data)
-    const result = await OrderServices.createOrder(order)
+    const zodOrder = OrderValidationSchema.parse(data)
+    const result = await OrderServices.createOrderinDB(zodOrder)
     res.json({
       success: true,
       message: 'Order created successfully!',
@@ -29,7 +30,7 @@ const createOrder = async (req: Request, res: Response) => {
 const getAllOrders = async (req: Request, res: Response) => {
   try {
     const { email } = req.query
-    const result = await OrderServices.getAllOrders(email)
+    const result = await OrderServices.getAllOrdersfromDB(email as string)
     if (email) {
       if (!result) {
         return res.status(500).json({

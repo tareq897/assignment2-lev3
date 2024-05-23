@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const OrderValidationSchema = z.object({
+ const OrderValidationSchema = z.object({
   email: z
     .string()
     .email('please provide an valid email')
@@ -9,3 +9,5 @@ export const OrderValidationSchema = z.object({
   price: z.number().min(1, 'price is required'),
   quantity: z.number().min(1, 'quantity is required'),
 })
+
+export default OrderValidationSchema

@@ -1,12 +1,12 @@
 import { Prorder} from './order.interface'
 import { OrderModel } from './order.model'
 
-const createOrder = async (payLoad: Prorder) => {
-  const result = await OrderModel.create(payLoad)
+const createOrderinDB = async (order: Prorder) => {
+  const result = await OrderModel.create(order)
   return result
 }
 
-const getAllOrders = async (email: unknown) => {
+const getAllOrdersfromDB = async (email: string) => {
   if (typeof email === 'string') {
     const result = await OrderModel.find({ email })
     return result
@@ -16,6 +16,6 @@ const getAllOrders = async (email: unknown) => {
 }
 
 export const OrderServices = {
-  createOrder,
-  getAllOrders,
+  createOrderinDB,
+  getAllOrdersfromDB,
 }
