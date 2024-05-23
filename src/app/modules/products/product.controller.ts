@@ -27,9 +27,13 @@ const getAllProducts = async (req: Request, res: Response) => {
       success: true,
       message: "product retrieved successfully",
       data: result,
-    });
-  } catch (error) {
-    console.log(error);
+    })
+  }catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'something went wrong',
+      data: error,
+  })
   }
 };
 
@@ -41,10 +45,13 @@ const getSingleProduct = async (req: Request, res: Response) => {
       success: true,
       message: "single product retrieved successfully",
       data: result,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+    })}catch(error) {
+    res.status(500).json({
+      success: false,
+      message: 'something went wrong',
+      data: error,
+  })
+}
 };
 
 const updateProduct = async (req: Request, res: Response) => {
