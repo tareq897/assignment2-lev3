@@ -4,7 +4,7 @@ To download or clone a project from guthub
 
 2. Go to terminal and type git clone "repository-name"
 
-  git clone https://github.com/username/repository.git
+  git clone https://github.com/tareq897/assignment2-lev3.git
 
 3. Find the location and get in the directory
 
